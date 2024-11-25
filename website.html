@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ein herzliches Willkommen!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      max-width: 90%;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    h1 {
+      color: #c56fff;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+    input[type="text"], button {
+      width: 90%;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+    button {
+      background-color: #c56fff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b04fdd;
+    }
+    .hidden {
+      display: none;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #c56fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+    a:hover {
+      background-color: #b04fdd;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Eingabecontainer -->
+  <div id="inputContainer" class="container">
+    <h1>Willkommen zu deiner Einladung!</h1>
+    <p>Bitte gib deinen Namen ein, um die Einladung zu sehen:</p>
+    <input type="text" id="nameInput" placeholder="Mein Name" autocorrect="off" autocapitalize="none">
+    <button onclick="showInvitation()">Weiter</button>
+  </div>
+
+  <!-- Einladungscontainer -->
+  <div id="invitationContainer" class="container hidden">
+    <h1>Du bist eingeladen!</h1>
+    <p id="personalGreeting">Hallo,</p>
+    <p>hiermit bist du offiziell eingeladen! Diesmal geht es ins Sportcafé Victory. 
+      Dort können wir Billiard oder Dart spielen und auch was essen. Ich würde mich sehr freuen, dich dabei zu haben.</p>
+    <p><strong>Datum:</strong> 14. Dezember 2024</p>
+    <p><strong>Ort:</strong> Steinbeisstraße 3, 71229 Leonberg</p>
+    <p>Bitte bestätige deine Verfügbarkeit über den Link unten:</p>
+    <a href="https://chat.whatsapp.com/FbdtGH57RG6JcUOd8I0oFc" target="_blank">Zur Bestätigung</a>
+  </div>
+
+  <footer>
+    &copy; 2024 - Celina wird 22 - all rights reserved  
+  </footer>
+
+  <script>
+    const allowedNames = ["Sydney", "sydney", "Sandro", "sandro", "Fabi", "fabi", "Fabian", "Ilka", "ilka", "Nastasia", "nastasia", "Enrico", "enrico", "Mert", "mert"];
+
+    function showInvitation() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (allowedNames.includes(name)) {
+        document.getElementById('inputContainer').classList.add('hidden');
+        document.getElementById('invitationContainer').classList.remove('hidden');
+        document.getElementById('personalGreeting').innerText = `Hallo ${name},`;
+      } else {
+        alert('Der eingegebene Name ist nicht gültig. Bitte versuche es erneut.');
+      }
+    }
+  </script>
+</body>
+</html>
